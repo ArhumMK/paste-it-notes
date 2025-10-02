@@ -1,21 +1,22 @@
 {
   "nodeModulesDir": "auto",
-  "unstable": [
-    "unsafe-proto",
-    "sloppy-imports"
-  ],
+  "unstable": ["unsafe-proto", "sloppy-imports"],
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "skipLibCheck": true
+  },
+  "imports": {
+    "@/*": "./src/*"
   },
   "tasks": {
-    "dev": "deno run -A --unstable-detect-cjs npm:next@latest dev",
-    "build": "deno run -A --unstable-detect-cjs npm:next@latest build",
-    "start": "deno run -A --unstable-detect-cjs npm:next@latest start"
+    "dev": "deno run --allow-read --allow-write --allow-env --allow-net --unstable-detect-cjs npm:next@15.5.4 dev",
+    "build": "deno run --allow-read --allow-write --allow-env --unstable-detect-cjs npm:next@15.5.4 build",
+    "start": "deno run --allow-read --allow-env --allow-net --unstable-detect-cjs npm:next@15.5.4 start",
+    "lint": "deno run --allow-read --allow-write --allow-env --unstable-detect-cjs npm:eslint@9"
   }
 }
